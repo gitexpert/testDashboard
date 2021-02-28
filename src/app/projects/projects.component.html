@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success text-light">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="#">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="col text-center">Application</div>
+      <div class="col-2 text-right">V1.0.0</div>
+    </div>
+  </nav>
+<div class="container">
+    <div class="row" id="navbarSupportedContent">
+        <div class="col-4 my-5 mx-auto">
+            <form class="d-flex m-auto">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="projectId" (change)="submitted=false;notFound=false" name="projectId">
+                <button class="btn btn-outline-success" type="submit" (click)="onSubmit()">Search</button>
+            </form>
+        </div>
+    </div>
+  <div [hidden]="!submitted">
+    <table class="table">
+        <tr>
+            <th>App ID</th>
+            <th>Dev Manager</th>
+        </tr>
+        <tr>
+            <td>{{ results.name }}</td>
+            <td>{{ results.first_name }} {{ results.last_name }}</td>
+        </tr>
+    </table>
+  </div>
+  <div [hidden]="!notFound">
+        <p class="alert-danger p-3">
+            Project not found
+        </p>
+  </div>
+</div>
+<div class="footer">
+    &#169; XYZ 2021
+</div>
